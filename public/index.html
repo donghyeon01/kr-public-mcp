@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>나라장터 입찰 MCP</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 3rem auto; padding: 0 1rem; line-height: 1.7; color: #222; }
+    code { background: #f0f0f0; padding: 0.1em 0.4em; border-radius: 4px; }
+    pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <h1>나라장터 입찰공고 AI 비서</h1>
+  <p>Claude·ChatGPT·Cursor에서 나라장터 입찰공고를 검색하고, 조건에 맞는 신규 공고를 매일 아침 이메일로 받는 MCP 서버입니다.</p>
+
+  <h2>연결 방법</h2>
+  <p>MCP 엔드포인트: <code>https://kr-public-mcp.&lt;your-subdomain&gt;.workers.dev/mcp</code></p>
+
+  <h3>Claude (claude.ai / Claude Code)</h3>
+  <pre>claude mcp add --transport http narajangteo https://kr-public-mcp.&lt;your-subdomain&gt;.workers.dev/mcp</pre>
+
+  <h3>ChatGPT / Cursor</h3>
+  <p>MCP 설정에 위 URL을 Streamable HTTP 서버로 추가하세요.</p>
+
+  <h3>Pro 이용권</h3>
+  <p>무료 도구(공고 검색·상세 조회)는 키 없이 일 30회까지 쓸 수 있습니다.
+  사전규격 조회·낙찰 분석·이메일 알림은 Pro 이용권(크몽 판매)이 필요합니다.
+  구매 후 발급받은 키를 <code>Authorization: Bearer &lt;키&gt;</code> 헤더로 전달하세요.</p>
+
+  <p><a href="/privacy.html">개인정보처리방침</a> · 데이터 출처: 조달청 나라장터 (공공데이터포털 오픈API)</p>
+</body>
+</html>

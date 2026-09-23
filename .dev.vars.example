@@ -1,0 +1,9 @@
+# 로컬 개발용 시크릿 — .dev.vars로 복사 후 값 채우기 (커밋 금지)
+# data.go.kr 마이페이지 → 개발계정 상세 → "일반 인증키(Decoding)" 값
+DATA_GO_KR_KEY=
+# Resend API 키 + 발신 주소
+RESEND_API_KEY=
+RESEND_FROM=나라장터 알림 <noreply@example.com>
+ADMIN_EMAIL=
+# /collect 수동 수집 보호 토큰 (임의 문자열)
+ADMIN_TOKEN=

@@ -1,0 +1,39 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kr-public-mcp",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  // D1: npm run db:create 실행 후 출력되는 database_id로 교체
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "kr-public-mcp-db",
+      "database_id": "1b387cd8-4ddc-452a-9484-95dbaeea3c7d"
+    }
+  ],
+  // KV: npm run kv:create 실행 후 출력되는 id로 교체
+  "kv_namespaces": [
+    {
+      "binding": "LICENSES",
+      "id": "d1e27a19e0ca4f76900957b71370dab4"
+    }
+  ],
+  "triggers": {
+    "crons": [
+      "17 * * * *",   // 매시: 입찰공고·사전규격 수집
+      "30 0 * * *",   // 매일 00:30 UTC: 낙찰 이력 수집
+      "0 23 * * *"    // 매일 08:00 KST: 알림 매칭 + 이메일
+    ]
+  },
+  "assets": {
+    "directory": "./public/"
+  },
+  "vars": {
+    "FREE_DAILY_LIMIT": "30",
+    "SOURCE_LABEL": "조달청 나라장터 (data.go.kr)",
+    "ADMIN_EMAIL": "songdonghyeon01@gmail.com"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

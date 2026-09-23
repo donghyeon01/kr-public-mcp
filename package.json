@@ -1,0 +1,26 @@
+{
+  "name": "kr-public-mcp",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "db:create": "wrangler d1 create kr-public-mcp-db",
+    "kv:create": "wrangler kv namespace create LICENSES",
+    "db:migrate:local": "wrangler d1 execute DB --local --file=schema.sql",
+    "db:migrate": "wrangler d1 execute DB --remote --file=schema.sql",
+    "issue-key": "node scripts/issue-key.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.0.0",
+    "agents": "^0.24.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260921.1",
+    "typescript": "^5.9.2",
+    "wrangler": "^4.136.3"
+  }
+}
