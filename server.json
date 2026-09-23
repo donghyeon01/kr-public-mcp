@@ -1,7 +1,7 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
   "name": "io.github.donghyeon01/kr-public-mcp",
-  "description": "나라장터(조달청) 입찰공고·사전규격·낙찰정보를 검색하는 원격 MCP 서버. 설치 없이 URL만 연결하면 된다. Korean public procurement (KONEPS) bid notices, pre-specs, and award history.",
+  "description": "나라장터 입찰공고·사전규격·낙찰정보 검색. Korean public procurement bids via KONEPS open API.",
   "title": "나라장터 입찰 MCP",
   "version": "0.1.0",
   "repository": {
