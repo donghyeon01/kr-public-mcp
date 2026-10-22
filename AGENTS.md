@@ -73,13 +73,13 @@ node scripts/issue-key.mjs --revoke njp_xxx
 
 ## 도구 명세 (계획서 §도구 명세와 1:1)
 
-| tool | 등급 | 비고 |
-|------|------|------|
-| search_bids | 무료 | D1 검색 (키워드·기간·업무·지역·가격) |
-| get_bid_detail | 무료 | D1 없으면 API 단건조회, 상세는 lazy fetch 후 D1 캐시 |
-| search_pre_specs | Pro | 사전규격 |
-| analyze_history | Pro | 낙찰 집계 (낙찰률·다빈도 업체·참가수) |
-| watch_bids | Pro | 알림 조건 CRUD + 08:00 KST 이메일 매칭 |
+| tool             | 등급 | 비고                                                 |
+| ---------------- | ---- | ---------------------------------------------------- |
+| search_bids      | 무료 | D1 검색 (키워드·기간·업무·지역·가격)                 |
+| get_bid_detail   | 무료 | D1 없으면 API 단건조회, 상세는 lazy fetch 후 D1 캐시 |
+| search_pre_specs | Pro  | 사전규격                                             |
+| analyze_history  | Pro  | 낙찰 집계 (낙찰률·다빈도 업체·참가수)                |
+| watch_bids       | Pro  | 알림 조건 CRUD + 08:00 KST 이메일 매칭               |
 
 모든 도구 응답 끝에 출처 표기 (`fmt.sourceFooter`).
 
@@ -100,5 +100,9 @@ node scripts/issue-key.mjs --revoke njp_xxx
   - search_bids / get_bid_detail(면허제한·첨부 링크 lazy 보강) 실데이터 응답 확인
   - 공무원 개인정보(Ofcl/Tel/Email/exctv)는 적재 전 stripPersonal로 제거됨을 확인
   - 미등록 시크릿: `RESEND_API_KEY`(Pro 알림 단계 전). ADMIN_TOKEN 값은 `.dev.vars` 참조
-- 다음: MCP 레지스트리(Smithery/공식/Glama/PlayMCP) 등록 → 크몽 이용권 → RESEND_API_KEY
+- 2026-10-23: **Glama claim 완료** — "KONEPS Bids (나라장터)"로 자동 등재된 리스팅 소유권 검증
+  - 검증 방식: HTTP 챌린지 `/.well-known/glama.json` (`*.workers.dev`는 DNS TXT 불가)
+  - claim 토큰은 파일을 계속 게시해야 유지됨 (제거 시 7일 유예 후 소유권 해제)
+  - 리스팅 이름 `kr-public-mcp`로 교정·지원 정보 보강은 Glama 대시보드에서 가능
+- 다음: 나머지 MCP 레지스트리(Smithery/공식/PlayMCP) 등록 → 크몽 이용권 → RESEND_API_KEY
 - 참고: data.go.kr 응답 `items`는 `{item:[]}` 중첩이 아니라 배열 직접 반환 (g2b.ts 양쪽 처리)
